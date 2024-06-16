@@ -1,5 +1,3 @@
-// TODO: Re-implement `Ticket`'s accessor methods. This time return a `&str` rather than a `&String`.
-
 pub struct Ticket {
     title: String,
     description: String,
@@ -29,33 +27,5 @@ impl Ticket {
             description,
             status,
         }
-    }
-
-    pub fn title(&self) -> &str {
-        &self.title
-    }
-
-    pub fn description(&self) -> &str {
-        &self.description
-    }
-
-    pub fn status(&self) -> &str {
-        &self.status
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use common::{valid_description, valid_title};
-    use std::any::{Any, TypeId};
-
-    #[test]
-    fn test_type() {
-        let ticket = Ticket::new(valid_title(), valid_description(), "To-Do".to_string());
-        // Some dark magic to verify that you used the expected return types
-        assert_eq!(TypeId::of::<str>(), ticket.title().type_id());
-        assert_eq!(TypeId::of::<str>(), ticket.description().type_id());
-        assert_eq!(TypeId::of::<str>(), ticket.status().type_id());
     }
 }
