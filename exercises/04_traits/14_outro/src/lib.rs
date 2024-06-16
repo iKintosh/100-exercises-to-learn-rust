@@ -16,12 +16,6 @@ pub struct SaturatingU16 {
     value: u16,
 }
 
-impl SaturatingU16 {
-    fn new(value: u16) -> Self {
-        Self { value }
-    }
-}
-
 impl From<u16> for SaturatingU16 {
     fn from(value: u16) -> Self {
         Self { value }
