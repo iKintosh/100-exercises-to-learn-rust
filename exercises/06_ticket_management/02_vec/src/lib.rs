@@ -1,3 +1,5 @@
+use std::usize;
+
 // Given a number `n`, return the `n+1`th number in the Fibonacci sequence.
 //
 // The Fibonacci sequence is defined as follows:
@@ -15,7 +17,20 @@ pub fn fibonacci(n: u32) -> u32 {
     //
     // Hint: use a `Vec` to memoize the results you have already calculated
     // so that you don't have to recalculate them several times.
-    todo!()
+    let mut feb = vec![0, 1];
+    if n == 0 {
+        return feb[0];
+    } else if n == 1 {
+        return feb[1];
+    } else {
+        for i in 2..=n {
+            let feb_2: usize = (i - 2) as usize;
+            let feb_1: usize = (i - 1) as usize;
+            let new_element: u32 = feb[feb_2] + feb[feb_1];
+            feb.push(new_element);
+        }
+    }
+    return *feb.last().unwrap();
 }
 
 #[cfg(test)]
