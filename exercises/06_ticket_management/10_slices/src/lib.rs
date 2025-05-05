@@ -5,6 +5,10 @@
 mod tests {
     use super::*;
 
+    fn sum(slice: &[u32]) -> u32 {
+        slice.iter().sum()
+    }
+
     #[test]
     fn empty() {
         let v = vec![];
