@@ -6,6 +6,15 @@
 mod tests {
     use super::*;
 
+    fn lowercase(input: &mut str) {
+        // unsafe {
+        //     for val in input.as_bytes_mut().into_iter() {
+        //         val.make_ascii_lowercase();
+        //     }
+        // }
+        input.make_ascii_lowercase();
+    }
+
     #[test]
     fn empty() {
         let mut s = String::from("");
